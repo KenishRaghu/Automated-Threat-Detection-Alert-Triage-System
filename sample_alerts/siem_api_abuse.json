@@ -1,0 +1,16 @@
+{
+  "alert_id": "siem-2026-0401-009",
+  "source": "sentinel",
+  "title": "Suspicious API abuse — token hammering",
+  "description": "Automated requests exceeded rate limits; possible scraping or credential stuffing against GraphQL.",
+  "severity": "medium",
+  "timestamp": "2026-04-01T11:40:00Z",
+  "alert_type": "suspicious_api_abuse",
+  "public_facing": true,
+  "network": {
+    "src_ip": "192.0.2.18"
+  },
+  "entity": {
+    "user": "api-key-service"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "alert_id": "siem-2026-0401-021",
+  "source": "qradar",
+  "title": "Suspicious login failures MFA fatigue",
+  "description": "Repeated auth failures for executive account; possible T1110 / credential guessing.",
+  "severity": "high",
+  "timestamp": "2026-04-01T13:01:00Z",
+  "alert_type": "suspicious_login",
+  "entity": {
+    "user": "cfo@example.com"
+  },
+  "network": {
+    "src_ip": "203.0.113.99"
+  }
+}

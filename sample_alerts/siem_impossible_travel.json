@@ -1,0 +1,17 @@
+{
+  "alert_id": "siem-2026-0401-002",
+  "source": "elastic_security",
+  "title": "Impossible travel — session from distant geolocations",
+  "description": "User logged in from US then UK within 12 minutes; valid account activity (T1078).",
+  "severity": "high",
+  "timestamp": "2026-04-01T15:00:00Z",
+  "alert_type": "impossible_travel",
+  "public_facing": false,
+  "service_tier": "critical",
+  "entity": {
+    "user": "jsmith@example.com"
+  },
+  "network": {
+    "src_ip": "198.51.100.201"
+  }
+}

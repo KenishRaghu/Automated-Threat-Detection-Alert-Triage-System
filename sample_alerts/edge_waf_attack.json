@@ -1,0 +1,13 @@
+{
+  "alert_id": "cf-2026-waf-88421",
+  "source": "cloudflare_waf",
+  "title": "WAF: blocked SQLi probe on public API",
+  "description": "Edge WAF blocked union-based SQL injection attempt on /v1/search (T1190).",
+  "severity": "critical",
+  "timestamp": "2026-04-01T16:05:11Z",
+  "alert_type": "waf_attack",
+  "public_facing": true,
+  "service_tier": "critical",
+  "client_ip": "185.199.108.0",
+  "hostname": "api.example.com"
+}

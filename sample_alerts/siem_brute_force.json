@@ -1,0 +1,18 @@
+{
+  "alert_id": "siem-2026-0401-001",
+  "source": "splunk_enterprise_security",
+  "title": "Multiple failed authentications from single source IP",
+  "description": "Brute force pattern detected against customer SSO portal (100+ failures / 5m).",
+  "severity": "high",
+  "timestamp": "2026-04-01T14:22:00Z",
+  "alert_type": "brute_force",
+  "public_facing": true,
+  "service_tier": "production",
+  "network": {
+    "src_ip": "203.0.113.44"
+  },
+  "entity": {
+    "user": null,
+    "host": "auth-edge-01"
+  }
+}

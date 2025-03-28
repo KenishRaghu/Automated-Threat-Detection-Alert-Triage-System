@@ -1,0 +1,1 @@
+"""Persistence adapters (OpenSearch, etc.)."""

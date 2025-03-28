@@ -1,0 +1,77 @@
+# MITRE ATT&CK technique mappings for alert classification (Cloudflare / edge-centric)
+# Technique IDs: https://attack.mitre.org/
+
+categories:
+  brute_force:
+    techniques: ["T1110"]
+    description: "Brute force or credential stuffing against auth surfaces"
+    base_severity: 75
+    credential_access: true
+
+  impossible_travel:
+    techniques: ["T1078"]
+    description: "Geographically implausible session transitions (valid account)"
+    base_severity: 70
+    credential_access: true
+
+  suspicious_api_abuse:
+    techniques: ["T1190", "T1090"]
+    description: "Abuse of public APIs or application endpoints"
+    base_severity: 68
+    edge_traffic: true
+    public_facing: true
+
+  waf_attack:
+    techniques: ["T1190"]
+    description: "Exploitation attempts blocked or observed at WAF/edge"
+    base_severity: 72
+    public_facing: true
+    edge_traffic: true
+
+  suspicious_login:
+    techniques: ["T1110", "T1078"]
+    description: "Repeated or anomalous login failures"
+    base_severity: 55
+    credential_access: true
+
+  malware_ioc:
+    techniques: ["T1204.002", "T1566"]
+    description: "Malware hash/IOC correlation or phishing delivery"
+    base_severity: 85
+    critical_service_risk: true
+
+  phishing:
+    techniques: ["T1566"]
+    description: "Credential harvesting or malicious link delivery"
+    base_severity: 80
+    credential_access: true
+
+  public_app_exploit:
+    techniques: ["T1190"]
+    description: "Exploitation of internet-facing application"
+    base_severity: 82
+    public_facing: true
+    edge_traffic: true
+
+  valid_account_abuse:
+    techniques: ["T1078"]
+    description: "Legitimate credentials used maliciously"
+    base_severity: 78
+    credential_access: true
+
+# Keyword hints → category (first match used as hint for classifier)
+keyword_hints:
+  - keywords: ["brute", "bruteforce", "credential stuffing", "password spray"]
+    category: brute_force
+  - keywords: ["impossible travel", "geo velocity", "implausible location"]
+    category: impossible_travel
+  - keywords: ["api abuse", "rate limit", "scraping", "automated requests"]
+    category: suspicious_api_abuse
+  - keywords: ["waf", "sql injection", "xss", "rce attempt", "blocked exploit"]
+    category: waf_attack
+  - keywords: ["login fail", "failed login", "auth failure", "mfa fatigue"]
+    category: suspicious_login
+  - keywords: ["malware", "ioc", "hash match", "c2", "trojan"]
+    category: malware_ioc
+  - keywords: ["phish", "credential harvesting", "malicious link"]
+    category: phishing
