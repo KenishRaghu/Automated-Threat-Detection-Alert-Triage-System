@@ -2,12 +2,8 @@
 
 Python service for **alert triage automation** (TTP-first prioritization) and **SIEM-driven incident response orchestration**. It is scoped to those two outcomes so you can explain the system cleanly in one pass—ideal for threat detection / IR internship discussions (including edge- and WAF-heavy narratives).
 
-## How this maps to the two resume bullets
-
-| Resume claim | What in this repo proves it |
-| --- | --- |
-| *Built Python automation to triage security alerts, prioritize threats by TTP analysis, reducing manual workload by ~60%* | `triage/` normalizes SIEM payloads, classifies alerts, maps to **MITRE ATT&CK** (`config/mitre_mappings.yaml`), computes **severity** and **confidence**, **deduplicates**, **suppresses** noise, assigns **critical / high / medium / low** bands, and emits **analyst summaries**. `triage/workload.py` models baseline analyst time vs. post-automation review (~**60%** reduction for typical non-suppressed alerts). |
-| *Integrated with SIEM platforms to orchestrate incident response workflows, improving detection coverage and response times* | `workflows/` accepts SIEM-style webhooks via FastAPI (`app/main.py`), creates **cases**, **tickets**, **escalations**, **Slack** (optional live webhook) and **PagerDuty-shaped** events (simulated id), runs **automated IP block** and **user disable** playbooks (HTTP stubs), builds an **incident timeline**, and records **audit** entries. Indexed triage docs in **OpenSearch** improve searchability of what was detected and how it was handled. |
+`triage/` normalizes SIEM payloads, classifies alerts, maps to **MITRE ATT&CK** (`config/mitre_mappings.yaml`), computes **severity** and **confidence**, **deduplicates**, **suppresses** noise, assigns **critical / high / medium / low** bands, and emits **analyst summaries**. `triage/workload.py` models baseline analyst time vs. post-automation review (~**60%** reduction for typical non-suppressed alerts). |
+`workflows/` accepts SIEM-style webhooks via FastAPI (`app/main.py`), creates **cases**, **tickets**, **escalations**, **Slack** (optional live webhook) and **PagerDuty-shaped** events (simulated id), runs **automated IP block** and **user disable** playbooks (HTTP stubs), builds an **incident timeline**, and records **audit** entries. Indexed triage docs in **OpenSearch** improve searchability of what was detected and how it was handled. |
 
 ## Architecture
 
